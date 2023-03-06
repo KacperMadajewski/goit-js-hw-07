@@ -14,14 +14,14 @@ galleryItems.forEach((item) => {
     alt="${item.description}" /></a></div>`;
   gallery.insertAdjacentHTML("beforeend", galletyItem);
 });
-const instance = basicLightbox.create(
-  (gallery.onclick = (event) => {
-    event.preventDefault();
+document.querySelector(".gallery").onclick = (event) => {
+  event.preventDefault();
+  const instance = basicLightbox.create(
     instance.create(
       `
-        <img width="1400" height="900" src="${event.target.dataset.source}">
-    `
-    );
-    instance.show();
-  })
-);
+      <img width="1400" height="900" src="${event.target.dataset.source}">
+      `
+    ),
+    instance.show()
+  );
+};
