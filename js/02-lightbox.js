@@ -8,7 +8,7 @@ const gallery = document.querySelector(".gallery");
 galleryItems.forEach((item) => {
   const galleryItem = `
     <a class="gallery__item" href="${item.original}">
-    <img class="gallery__image"
+    <img class="gallery__image" /
     src="${item.preview}"
     alt="${item.description}" /></a>`;
   gallery.insertAdjacentHTML("beforeend", galleryItem);
@@ -26,10 +26,13 @@ const instance = basicLightbox.create(
 );
 
 const lightbox = new SimpleLightbox(".gallery a", {
+  nav: true,
   captions: true,
   captionSelector: "img",
-  captionType: "attr",
+  captionType: "text",
   captionsData: "alt",
   captionPosition: "bottom",
   captionDeley: 250,
+  close: true,
+  closeText: "x",
 });
