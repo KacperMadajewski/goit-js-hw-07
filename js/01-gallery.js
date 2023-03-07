@@ -15,7 +15,7 @@ galleryItems.forEach((item) => {
   gallery.insertAdjacentHTML("beforeend", galletyItem);
 });
 document.querySelector(".gallery").onclick = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   const instance = basicLightbox.create(
     instance.create(
       `
