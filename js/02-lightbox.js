@@ -13,26 +13,21 @@ galleryItems.forEach((item) => {
     alt="${item.description}" /></a>`;
   gallery.insertAdjacentHTML("beforeend", galleryItem);
 });
-const instance = basicLightbox.create(
-  (document.querySelector(".gallery").onclick = (event) => {
-    event.preventDefault();
-    instance.create(
-      `
+document.querySelector(".gallery").onclick = (event) => {
+  event.preventDefault();
+  const instance = basicLightbox.create(
+    `
         <img width="1400" height="900" src="${event.target.dataset.source}">
     `
-    );
-    instance.show();
-  })
-);
+  );
+  instance.show();
+};
 
 const lightbox = new SimpleLightbox(".gallery a", {
-  nav: true,
   captions: true,
   captionSelector: "img",
-  captionType: "text",
+  captionType: "attr",
   captionsData: "alt",
   captionPosition: "bottom",
   captionDeley: 250,
-  close: true,
-  closeText: "x",
 });
