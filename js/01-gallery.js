@@ -15,13 +15,11 @@ galleryItems.forEach((item) => {
   gallery.insertAdjacentHTML("beforeend", galletyItem);
 });
 document.querySelector(".gallery").onclick = (event) => {
-  // event.preventDefault();
+  event.preventDefault();
   const instance = basicLightbox.create(
-    instance.create(
-      `
+    `
       <img width="1400" height="900" src="${event.target.dataset.source}">
       `
-    ),
-    instance.show()
   );
+  instance.show();
 };
